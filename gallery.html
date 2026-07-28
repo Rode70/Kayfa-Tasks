@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nature Gallery</title>
+</head>
+<body>
+  <h1>Nature Gallery</h1>
+
+  <figure>
+    <img src="images/mountain.jpg" alt="Mountain" width="600" height="400">
+    <figcaption>A snow-covered mountain on a clear day.</figcaption>
+  </figure>
+
+  <img src="images/forest.jpg" alt="Forest" width="600" height="400">
+
+  <img
+    src="images/lake-600.jpg"
+    srcset="images/lake-600.jpg 600w, images/lake-1200.jpg 1200w"
+    sizes="(max-width: 700px) 100vw, 600px"
+    alt="Lake"
+    width="600"
+    height="400">
+
+  <img src="images/decorative-line.png" alt="meoo" width="600" height="40">
+
+  <video controls poster="images/video-poster.jpg" width="640" height="360">
+    <source src="media/nature.mp4" type="video/mp4">
+  </video>
+</body>
+</html>
