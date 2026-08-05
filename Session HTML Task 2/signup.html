@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign Up</title>
+</head>
+<body>
+
+  <h1>Create Your Account</h1>
+
+  <form action="/signup.php" method="POST" >
+
+    <input type="hidden" name="source" value="website">
+
+    <p>
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" minlength="3" maxlength="40" required>
+    </p>
+
+    <p>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </p>
+
+    <p>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" minlength="8">
+    </p>
+
+    <p>
+      <label for="website">Website</label>
+      <input type="url" id="website" name="website">
+    </p>
+
+    <p>
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone">
+    </p>
+
+    <p>
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" min="12" max="90">
+    </p>
+
+    <p>
+      <label for="birthday">Birthday</label>
+      <input type="date" id="birthday" name="birthday">
+    </p>
+
+    <p>
+      <label for="code">Verification Code</label>
+      <input type="text" id="code" name="code" pattern="[0-9]{5}" title="Enter exactly 5 digits, for example 40251">
+    </p>
+
+    <p>
+      <label for="files">Attachments</label>
+      <input type="file" id="files" name="files[]" multiple>
+    </p>
+
+    <fieldset>
+      <legend>Gender</legend>
+      <p>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+      </p>
+      <p>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Hobbies</legend>
+      <p>
+        <input type="checkbox" id="coding" name="hobbies" value="coding">
+        <label for="coding">Coding</label>
+      </p>
+      <p>
+        <input type="checkbox" id="gaming" name="hobbies" value="gaming">
+        <label for="gaming">Gaming</label>
+      </p>
+      <p>
+        <input type="checkbox" id="reading" name="hobbies" value="reading">
+        <label for="reading">Reading</label>
+      </p>
+    </fieldset>
+
+    <p>
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <optgroup label="Middle East">
+          <option value="eg">Egypt</option>
+          <option value="sy">Syria</option>
+          <option value="sa">Saudi Arabia</option>
+        </optgroup>
+        <optgroup label="Europe">
+          <option value="nl">Netherlands</option>
+          <option value="de">Germany</option>
+          <option value="tr">Turkey</option>
+        </optgroup>
+      </select>
+    </p>
+
+    <p>
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" rows="5" cols="40">Tell us a little about yourself.</textarea>
+    </p>
+
+    <p>
+      <button type="submit">Create Account</button>
+      <button type="reset">Clear Form</button>
+    </p>
+
+  </form>
+
+</body>
+</html>

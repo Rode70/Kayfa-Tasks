@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register — Kayfa Academy</title>
+</head>
+<body>
+
+  <h1>Student Registration</h1>
+
+  <form action="/register.php" method="POST">
+
+    <fieldset>
+      <legend>Account</legend>
+
+      <p>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" minlength="4" maxlength="20" required>
+      </p>
+
+      <p>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </p>
+
+      <p>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" minlength="8" required>
+      </p>
+
+      <p>
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm" name="confirm" minlength="8" required>
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Personal</legend>
+
+      <p>
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" minlength="3" maxlength="60" required>
+      </p>
+
+      <p>
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10,14}" title="Digits only, between 10 and 14 characters" required>
+      </p>
+
+      <p>
+        <label for="birthdate">Date of Birth</label>
+        <input type="date" id="birthdate" name="birthdate" min="1950-01-01" max="2012-12-31" required>
+      </p>
+
+      <p>
+        <label for="postcode">Postal Code</label>
+        <input type="text" id="postcode" name="postcode" pattern="[0-9]{5}" title="Enter exactly 5 digits, for example 30110">
+      </p>
+
+      <fieldset>
+        <legend>Gender</legend>
+        <p>
+          <input type="radio" id="male" name="gender" value="male" required>
+          <label for="male">Male</label>
+        </p>
+        <p>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Female</label>
+        </p>
+      </fieldset>
+    </fieldset>
+
+    <fieldset>
+      <legend>Preferences</legend>
+
+      <p>
+        <label for="track">Track</label>
+        <select id="track" name="track" required>
+          <option value="">Choose a track</option>
+          <optgroup label="Web">
+            <option value="frontend">Frontend Development</option>
+            <option value="backend">Backend Development</option>
+            <option value="fullstack">Fullstack Development</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="mobile">Mobile Development</option>
+            <option value="data">Data Analysis</option>
+          </optgroup>
+        </select>
+      </p>
+
+      <p>
+        <label for="experience">Years of Experience</label>
+        <input type="number" id="experience" name="experience" min="0" max="30" value="0">
+      </p>
+
+      <fieldset>
+        <legend>Study Days</legend>
+        <p>
+          <input type="checkbox" id="saturday" name="days" value="saturday">
+          <label for="saturday">Saturday</label>
+        </p>
+        <p>
+          <input type="checkbox" id="monday" name="days" value="monday">
+          <label for="monday">Monday</label>
+        </p>
+        <p>
+          <input type="checkbox" id="wednesday" name="days" value="wednesday">
+          <label for="wednesday">Wednesday</label>
+        </p>
+      </fieldset>
+
+      <p>
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="notes" rows="5" cols="40">Anything you want the instructor to know.</textarea>
+      </p>
+
+      <p>
+        <input type="checkbox" id="terms" name="terms" value="agreed" required>
+        <label for="terms">I agree to the academy terms</label>
+      </p>
+    </fieldset>
+
+    <p>
+      <button type="submit">Register</button>
+      <button type="reset">Clear Form</button>
+    </p>
+
+  </form>
+
+  <h2>Recent Registrations</h2>
+
+  <table border="1">
+    <caption>Sample of entries submitted through this form</caption>
+
+    <thead>
+      <tr>
+        <th scope="col">Full Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Track</th>
+        <th scope="col">Experience</th>
+        <th scope="col">Study Days</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Ahmad Nasser</th>
+        <td>ahmad@example.com</td>
+        <td>Fullstack Development</td>
+        <td>3</td>
+        <td>Saturday, Wednesday</td>
+      </tr>
+      <tr>
+        <th scope="row">Lina Haddad</th>
+        <td>lina@example.com</td>
+        <td>Frontend Development</td>
+        <td>1</td>
+        <td>Monday</td>
+      </tr>
+      <tr>
+        <th scope="row">Omar Khalil</th>
+        <td>omar@example.com</td>
+        <td>Data Analysis</td>
+        <td>0</td>
+        <td>Saturday, Monday, Wednesday</td>
+      </tr>
+    </tbody>
+
+  </table>
+
+</body>
+</html>
