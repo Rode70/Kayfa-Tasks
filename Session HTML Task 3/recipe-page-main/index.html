@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Recipe page</title>
+  <style>
+    @font-face {
+      font-family: 'Young Serif';
+      src: url('./assets/fonts/YoungSerif-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Outfit';
+      src: url('./assets/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #5f564d;
+      background-color: #f3e5d8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 124px 24px;
+    }
+
+    .card {
+      background-color: #fff;
+      max-width: 736px;
+      width: 100%;
+      border-radius: 24px;
+      padding: 40px;
+    }
+
+    .card__image {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .card__title {
+      font-family: 'Young Serif', serif;
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 1;
+      color: #312e2c;
+      margin-top: 40px;
+    }
+
+    .card__description {
+      margin-top: 24px;
+    }
+
+    /* --- Preparation time box --- */
+    .prep {
+      background-color: #fff7fb;
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 32px;
+    }
+
+    .prep__title {
+      font-weight: 600;
+      font-size: 20px;
+      color: #7b284f;
+      margin-bottom: 16px;
+    }
+
+    .prep__list {
+      padding-left: 24px;
+    }
+
+    .prep__list li {
+      padding-left: 16px;
+      padding-bottom: 8px;
+    }
+
+    .prep__list li:last-child {
+      padding-bottom: 0;
+    }
+
+    .prep__list li::marker {
+      color: #7b284f;
+    }
+
+    /* --- Section headings --- */
+    .section-heading {
+      font-family: 'Young Serif', serif;
+      font-weight: 400;
+      font-size: 28px;
+      color: #854632;
+      margin-bottom: 24px;
+    }
+
+    /* --- Ingredients --- */
+    .ingredients {
+      margin-top: 32px;
+    }
+
+    .ingredients__list {
+      padding-left: 24px;
+    }
+
+    .ingredients__list li {
+      padding-left: 16px;
+      padding-bottom: 8px;
+    }
+
+    .ingredients__list li:last-child {
+      padding-bottom: 0;
+    }
+
+    .ingredients__list li::marker {
+      color: #854632;
+    }
+
+    /* --- Divider --- */
+    .divider {
+      border: none;
+      border-top: 1px solid #e3ddd7;
+      margin: 32px 0;
+    }
+
+    /* --- Instructions --- */
+    .instructions__list {
+      padding-left: 24px;
+    }
+
+    .instructions__list li {
+      padding-left: 16px;
+      padding-bottom: 8px;
+    }
+
+    .instructions__list li:last-child {
+      padding-bottom: 0;
+    }
+
+    .instructions__list li::marker {
+      font-weight: 700;
+      color: #854632;
+    }
+
+    /* --- Nutrition --- */
+    .nutrition__description {
+      margin-bottom: 24px;
+    }
+
+    .nutrition__table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .nutrition__table tr {
+      border-bottom: 1px solid #e3ddd7;
+    }
+
+    .nutrition__table tr:last-child {
+      border-bottom: none;
+    }
+
+    .nutrition__table td {
+      padding: 12px 32px;
+    }
+
+    .nutrition__table td:first-child {
+      width: 50%;
+    }
+
+    .nutrition__table td:last-child {
+      font-weight: 700;
+      color: #854632;
+    }
+
+    /* --- Attribution --- */
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    strong {
+      font-weight: 700;
+      color: #312e2c;
+    }
+
+    /* --- Mobile --- */
+    @media (max-width: 600px) {
+      body {
+        padding: 0;
+      }
+
+      .card {
+        border-radius: 0;
+        padding: 0 0 32px;
+      }
+
+      .card__image {
+        border-radius: 0;
+      }
+
+      .card__title,
+      .card__description,
+      .prep,
+      .ingredients,
+      .instructions,
+      .nutrition,
+      .divider {
+        margin-left: 32px;
+        margin-right: 32px;
+      }
+
+      .card__title {
+        font-size: 36px;
+        margin-top: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="card">
+    <img class="card__image" src="./assets/images/image-omelette.jpeg" alt="A folded omelette filled with vegetables served on a plate with hummus">
+
+    <h1 class="card__title">Simple Omelette Recipe</h1>
+
+    <p class="card__description">An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked to perfection, optionally filled with your choice of cheese, vegetables, or meats.</p>
+
+    <div class="prep">
+      <h2 class="prep__title">Preparation time</h2>
+      <ul class="prep__list">
+        <li><strong>Total</strong>: Approximately 10 minutes</li>
+        <li><strong>Preparation</strong>: 5 minutes</li>
+        <li><strong>Cooking</strong>: 5 minutes</li>
+      </ul>
+    </div>
+
+    <div class="ingredients">
+      <h2 class="section-heading">Ingredients</h2>
+      <ul class="ingredients__list">
+        <li>2-3 large eggs</li>
+        <li>Salt, to taste</li>
+        <li>Pepper, to taste</li>
+        <li>1 tablespoon of butter or oil</li>
+        <li>Optional fillings: cheese, diced vegetables, cooked meats, herbs</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <div class="instructions">
+      <h2 class="section-heading">Instructions</h2>
+      <ol class="instructions__list">
+        <li><strong>Beat the eggs</strong>: In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a tablespoon of water or milk for a fluffier texture.</li>
+        <li><strong>Heat the pan</strong>: Place a non-stick frying pan over medium heat and add butter or oil.</li>
+        <li><strong>Cook the omelette</strong>: Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure the eggs evenly coat the surface.</li>
+        <li><strong>Add fillings (optional)</strong>: When the eggs begin to set at the edges but are still slightly runny in the middle, sprinkle your chosen fillings over one half of the omelette.</li>
+        <li><strong>Fold and serve</strong>: As the omelette continues to cook, carefully lift one edge and fold it over the fillings. Let it cook for another minute, then slide it onto a plate.</li>
+        <li><strong>Enjoy</strong>: Serve hot, with additional salt and pepper if needed.</li>
+      </ol>
+    </div>
+
+    <hr class="divider">
+
+    <div class="nutrition">
+      <h2 class="section-heading">Nutrition</h2>
+      <p class="nutrition__description">The table below shows nutritional values per serving without the additional fillings.</p>
+      <table class="nutrition__table">
+        <tbody>
+          <tr>
+            <td>Calories</td>
+            <td>277kcal</td>
+          </tr>
+          <tr>
+            <td>Carbs</td>
+            <td>0g</td>
+          </tr>
+          <tr>
+            <td>Protein</td>
+            <td>20g</td>
+          </tr>
+          <tr>
+            <td>Fat</td>
+            <td>22g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </footer>
+
+</body>
+</html>
