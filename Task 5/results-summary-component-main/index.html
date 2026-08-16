@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Results summary component</title>
+  <style>
+    @font-face {
+      font-family: 'Hanken Grotesk';
+      src: url('./assets/fonts/HankenGrotesk-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      background-color: hsl(221, 100%, 96%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      display: flex;
+      max-width: 736px;
+      width: 100%;
+      border-radius: 32px;
+      background-color: hsl(0, 0%, 100%);
+      box-shadow: 0 30px 60px hsla(224, 30%, 27%, 0.15);
+    }
+
+    /* ---------- Left: Result ---------- */
+    .result {
+      flex: 1;
+      background: linear-gradient(to bottom, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+      border-radius: 32px;
+      padding: 38px 58px 46px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .result__heading {
+      font-size: 24px;
+      font-weight: 700;
+      color: hsl(241, 100%, 89%);
+    }
+
+    .result__circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(to bottom, hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 35px;
+    }
+
+    .result__score {
+      font-size: 72px;
+      font-weight: 800;
+      color: hsl(0, 0%, 100%);
+      line-height: 1;
+    }
+
+    .result__total {
+      font-size: 18px;
+      font-weight: 700;
+      color: hsla(241, 100%, 89%, 0.52);
+      margin-top: 4px;
+    }
+
+    .result__label {
+      font-size: 32px;
+      font-weight: 700;
+      color: hsl(0, 0%, 100%);
+      margin-top: 28px;
+    }
+
+    .result__text {
+      font-size: 18px;
+      color: hsl(241, 100%, 89%);
+      line-height: 1.4;
+      margin-top: 14px;
+    }
+
+    /* ---------- Right: Summary ---------- */
+    .summary {
+      flex: 1;
+      padding: 38px 40px 46px;
+    }
+
+    .summary__heading {
+      font-size: 24px;
+      font-weight: 800;
+      color: hsl(224, 30%, 27%);
+    }
+
+    .summary__list {
+      list-style: none;
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .summary__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 17px 16px;
+      border-radius: 12px;
+    }
+
+    .summary__item--reaction {
+      background-color: hsla(0, 100%, 67%, 0.05);
+    }
+
+    .summary__item--memory {
+      background-color: hsla(39, 100%, 56%, 0.05);
+    }
+
+    .summary__item--verbal {
+      background-color: hsla(166, 100%, 37%, 0.05);
+    }
+
+    .summary__item--visual {
+      background-color: hsla(234, 85%, 45%, 0.05);
+    }
+
+    .summary__label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+    }
+
+    .summary__label img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .summary__item--reaction .summary__category { color: hsl(0, 100%, 67%); }
+    .summary__item--memory .summary__category { color: hsl(39, 100%, 56%); }
+    .summary__item--verbal .summary__category { color: hsl(166, 100%, 37%); }
+    .summary__item--visual .summary__category { color: hsl(234, 85%, 45%); }
+
+    .summary__score {
+      color: hsla(224, 30%, 27%, 0.5);
+      font-weight: 700;
+    }
+
+    .summary__score span {
+      color: hsl(224, 30%, 27%);
+      font-weight: 800;
+    }
+
+    .summary__button {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      margin-top: 40px;
+      border: none;
+      border-radius: 128px;
+      background-color: hsl(224, 30%, 27%);
+      color: hsl(0, 0%, 100%);
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .summary__button:hover,
+    .summary__button:focus-visible {
+      background: linear-gradient(to bottom, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    }
+
+    /* ---------- Attribution ---------- */
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 600px) {
+      body {
+        padding: 0;
+        justify-content: flex-start;
+      }
+
+      .card {
+        flex-direction: column;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .result {
+        border-radius: 0 0 32px 32px;
+        padding: 24px 56px 40px;
+      }
+
+      .result__circle {
+        width: 140px;
+        height: 140px;
+        margin-top: 24px;
+      }
+
+      .result__score {
+        font-size: 56px;
+      }
+
+      .result__total {
+        font-size: 16px;
+      }
+
+      .result__label {
+        font-size: 24px;
+        margin-top: 24px;
+      }
+
+      .result__text {
+        font-size: 16px;
+      }
+
+      .summary {
+        padding: 24px 30px 30px;
+      }
+
+      .attribution {
+        padding-bottom: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="card">
+    <section class="result">
+      <h1 class="result__heading">Your Result</h1>
+      <div class="result__circle">
+        <p class="result__score">76</p>
+        <p class="result__total">of 100</p>
+      </div>
+      <p class="result__label">Great</p>
+      <p class="result__text">You scored higher than 65% of the people who have taken these tests.</p>
+    </section>
+
+    <section class="summary">
+      <h2 class="summary__heading">Summary</h2>
+
+      <ul class="summary__list">
+        <li class="summary__item summary__item--reaction">
+          <div class="summary__label">
+            <img src="./assets/images/icon-reaction.svg" alt="">
+            <span class="summary__category">Reaction</span>
+          </div>
+          <p class="summary__score"><span>80</span> / 100</p>
+        </li>
+
+        <li class="summary__item summary__item--memory">
+          <div class="summary__label">
+            <img src="./assets/images/icon-memory.svg" alt="">
+            <span class="summary__category">Memory</span>
+          </div>
+          <p class="summary__score"><span>92</span> / 100</p>
+        </li>
+
+        <li class="summary__item summary__item--verbal">
+          <div class="summary__label">
+            <img src="./assets/images/icon-verbal.svg" alt="">
+            <span class="summary__category">Verbal</span>
+          </div>
+          <p class="summary__score"><span>61</span> / 100</p>
+        </li>
+
+        <li class="summary__item summary__item--visual">
+          <div class="summary__label">
+            <img src="./assets/images/icon-visual.svg" alt="">
+            <span class="summary__category">Visual</span>
+          </div>
+          <p class="summary__score"><span>73</span> / 100</p>
+        </li>
+      </ul>
+
+      <button class="summary__button" type="button">Continue</button>
+    </section>
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </footer>
+
+</body>
+</html>
